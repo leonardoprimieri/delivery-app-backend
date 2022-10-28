@@ -2,7 +2,9 @@ import { prisma } from "../../../../database/prisma-client";
 import { CreateClientDTO } from "../../dtos/create-client-dto";
 
 import { hash } from "bcrypt";
+import { injectable } from "tsyringe";
 
+@injectable()
 export class CreateClientUsecase {
   async execute({ username, password }: CreateClientDTO) {
     const clientAlreadyExists = await prisma.clients.findFirst({
