@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { container, inject } from "tsyringe";
+import { container } from "tsyringe";
 import { CreateClientUsecase } from "./create-client-usecase";
 
 export class CreateClientController {

@@ -1,6 +1,6 @@
 import { AuthenticateClientController } from "@modules/accounts/usecases";
+import { CreateClientController } from "@modules/clients/usecases";
 import { Router } from "express";
-import { CreateClientController } from "./modules/clients/usecases/create-client/create-client-controller";
 
 const routes = Router();
 

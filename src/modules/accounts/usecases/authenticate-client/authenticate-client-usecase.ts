@@ -1,5 +1,5 @@
+import { prisma } from "@shared/database/prisma-client";
 import { compare } from "bcrypt";
-import { prisma } from "database/prisma-client";
 import { sign } from "jsonwebtoken";
 import { injectable } from "tsyringe";
 

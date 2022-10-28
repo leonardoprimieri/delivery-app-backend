@@ -1,8 +1,8 @@
-import { prisma } from "../../../../database/prisma-client";
 import { CreateClientDTO } from "../../dtos/create-client-dto";
 
 import { hash } from "bcrypt";
 import { injectable } from "tsyringe";
+import { prisma } from "@shared/database/prisma-client";
 
 @injectable()
 export class CreateClientUsecase {
