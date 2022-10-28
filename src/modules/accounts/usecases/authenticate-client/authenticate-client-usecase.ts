@@ -1,4 +1,5 @@
 import { prisma } from "@shared/database/prisma-client";
+import { AppError } from "@shared/errors";
 import { compare } from "bcrypt";
 import { sign } from "jsonwebtoken";
 import { injectable } from "tsyringe";
@@ -18,13 +19,13 @@ export class AuthenticateClientUsecase {
     });
 
     if (!client) {
-      throw new Error("Username or password invalid");
+      throw new AppError("Username or password invalid", 401);
     }
 
     const passwordMatch = await compare(password, client.password);
 
     if (!passwordMatch) {
-      throw new Error("Username or password invalid");
+      throw new AppError("Username or password invalid", 401);
     }
 
     const token = sign({ username }, String(process.env.JWT_SECRET), {

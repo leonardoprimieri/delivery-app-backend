@@ -3,6 +3,7 @@ import { CreateClientDTO } from "../../dtos/create-client-dto";
 import { hash } from "bcrypt";
 import { injectable } from "tsyringe";
 import { prisma } from "@shared/database/prisma-client";
+import { AppError } from "@shared/errors";
 
 @injectable()
 export class CreateClientUsecase {
@@ -14,7 +15,7 @@ export class CreateClientUsecase {
     });
 
     if (clientAlreadyExists) {
-      throw new Error("Client already exists");
+      throw new AppError("Client already exists");
     }
 
     const hashedPassword = await hash(password, 10);
