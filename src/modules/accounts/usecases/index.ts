@@ -1,2 +1,2 @@
-export * from "./authenticate-user/authenticate-user-controller";
-export * from "./authenticate-user/authenticate-user-usecase";
+export * from "./authenticate-client/authenticate-client-controller";
+export * from "./authenticate-client/authenticate-client-usecase";

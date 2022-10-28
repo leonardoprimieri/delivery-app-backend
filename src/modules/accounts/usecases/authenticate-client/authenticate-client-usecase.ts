@@ -1,6 +1,6 @@
 import { injectable } from "tsyringe";
 
 @injectable()
-export class AuthenticateUserUsecase {
+export class AuthenticateClientUsecase {
   async execute() {}
 }
