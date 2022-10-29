@@ -1,11 +1,11 @@
-import { CreateDeliveryDTO } from "@modules/deliveries/dtos/create-delivery-dto";
 import { CreateDeliveryUsecase } from "@modules/deliveries/usecases";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 export class CreateDeliveryController {
   async handle(request: Request, response: Response) {
-    const { id_client, item_name } = request.body;
+    const { item_name } = request.body;
+    const { id_client } = request;
 
     const createDeliveryUsecase = container.resolve(CreateDeliveryUsecase);
 
