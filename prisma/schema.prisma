@@ -20,10 +20,11 @@ model Deliveryman {
 }
 
 model Clients {
-  id         String       @id @default(uuid())
-  username   String       @unique
-  password   String
-  deliveries Deliveries[]
+  id                String               @id @default(uuid())
+  username          String               @unique
+  password          String
+  deliveries        Deliveries[]
+  CreateClientToken CreateClientTokens[]
 
   @@map("clients")
 }
@@ -39,4 +40,16 @@ model Deliveries {
   end_at         DateTime?
 
   @@map("deliveries")
+}
+
+model CreateClientTokens {
+  id            String   @id @default(uuid())
+  refresh_token String
+  user_id       String
+  expires_date  DateTime
+  created_at    DateTime @default(now())
+  id_client     String
+  client        Clients  @relation(fields: [id_client], references: [id])
+
+  @@map("create_client_tokens")
 }
