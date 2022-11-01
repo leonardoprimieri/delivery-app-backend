@@ -1,13 +1,13 @@
-import { CreateDeliverymanUsecase } from "@modules/deliveryman/usecases";
+import { CreateDeliverymanService } from "@modules/deliveryman/usecases";
 import { Request, Response } from "express";
 import { container, inject } from "tsyringe";
 
 export class CreateDeliverymanController {
   async handle(request: Request, response: Response) {
     const { username, password } = request.body;
-    const createDeliverymanUsecase = container.resolve(CreateDeliverymanUsecase);
+    const createDeliverymanService = container.resolve(CreateDeliverymanService);
 
-    const deliveryman = await createDeliverymanUsecase.execute({
+    const deliveryman = await createDeliverymanService.execute({
       username,
       password,
     });

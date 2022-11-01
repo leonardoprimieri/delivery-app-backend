@@ -3,7 +3,7 @@ import { prisma } from "@shared/database/prisma-client";
 import { injectable } from "tsyringe";
 
 @injectable()
-export class CreateDeliveryUsecase {
+export class CreateDeliveryService {
   async execute({ id_client, item_name }: CreateDeliveryDTO) {
     const delivery = await prisma.deliveries.create({
       data: {

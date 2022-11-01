@@ -1,13 +1,13 @@
-import { AuthenticateClientUsecase } from "@modules/accounts/usecases";
+import { AuthenticateClientService } from "@modules/accounts/usecases";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
 export class AuthenticateClientController {
   async handle(request: Request, response: Response) {
     const { username, password } = request.body;
-    const authenticateClientUsecase = container.resolve(AuthenticateClientUsecase);
+    const authenticateClientService = container.resolve(AuthenticateClientService);
 
-    const token = await authenticateClientUsecase.execute({
+    const token = await authenticateClientService.execute({
       password,
       username,
     });

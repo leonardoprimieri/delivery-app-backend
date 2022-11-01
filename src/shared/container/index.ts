@@ -1,19 +1,19 @@
 import {
-  AuthenticateClientUsecase,
-  AuthenticateDeliverymanUsecase,
+  AuthenticateClientService,
+  AuthenticateDeliverymanService,
 } from "@modules/accounts/usecases";
-import { CreateClientUsecase, FindAllClientDeliveriesUsecase } from "@modules/clients/usecases";
+import { CreateClientService, FindAllClientDeliveriesService } from "@modules/clients/usecases";
 import {
-  FindAllAvailableDeliveriesUsecase,
-  UpdateDeliverymanUsecase,
+  FindAllAvailableDeliveriesService,
+  UpdateDeliverymanService,
 } from "@modules/deliveries/usecases";
-import { CreateDeliverymanUsecase } from "@modules/deliveryman/usecases";
+import { CreateDeliverymanService } from "@modules/deliveryman/usecases";
 import { container } from "tsyringe";
 
-container.registerSingleton("CreateClientUsecase", CreateClientUsecase);
-container.registerSingleton("AuthenticateClientUsecase", AuthenticateClientUsecase);
-container.registerSingleton("CreateDeliverymanUsecase", CreateDeliverymanUsecase);
-container.registerSingleton("AuthenticateDeliverymanUsecase", AuthenticateDeliverymanUsecase);
-container.registerSingleton("FindAllAvailableDeliveriesUsecase", FindAllAvailableDeliveriesUsecase);
-container.registerSingleton("UpdateDeliverymanUsecase", UpdateDeliverymanUsecase);
-container.registerSingleton("FindAllClientDeliveriesUsecase", FindAllClientDeliveriesUsecase);
+container.registerSingleton("CreateClientService", CreateClientService);
+container.registerSingleton("AuthenticateClientService", AuthenticateClientService);
+container.registerSingleton("CreateDeliverymanService", CreateDeliverymanService);
+container.registerSingleton("AuthenticateDeliverymanService", AuthenticateDeliverymanService);
+container.registerSingleton("FindAllAvailableDeliveriesService", FindAllAvailableDeliveriesService);
+container.registerSingleton("UpdateDeliverymanService", UpdateDeliverymanService);
+container.registerSingleton("FindAllClientDeliveriesService", FindAllClientDeliveriesService);

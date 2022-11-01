@@ -2,7 +2,7 @@ import { prisma } from "@shared/database/prisma-client";
 import { injectable } from "tsyringe";
 
 @injectable()
-export class FindAllAvailableDeliveriesUsecase {
+export class FindAllAvailableDeliveriesService {
   async execute() {
     const allAvailableDeliveries = await prisma.deliveries.findMany({
       where: {

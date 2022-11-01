@@ -6,7 +6,7 @@ import { prisma } from "@shared/database/prisma-client";
 import { AppError } from "@shared/errors";
 
 @injectable()
-export class CreateClientUsecase {
+export class CreateClientService {
   async execute({ username, password }: CreateClientDTO) {
     const clientAlreadyExists = await prisma.clients.findFirst({
       where: {

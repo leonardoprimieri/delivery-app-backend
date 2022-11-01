@@ -10,7 +10,7 @@ interface IAuthenticateDeliveryman {
 }
 
 @injectable()
-export class AuthenticateDeliverymanUsecase {
+export class AuthenticateDeliverymanService {
   async execute({ password, username }: IAuthenticateDeliveryman) {
     const deliveryman = await prisma.deliveryman.findFirst({
       where: {

@@ -1,4 +1,4 @@
-import { CreateDeliveryUsecase } from "@modules/deliveries/usecases";
+import { CreateDeliveryService } from "@modules/deliveries/usecases";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
@@ -7,9 +7,9 @@ export class CreateDeliveryController {
     const { item_name } = request.body;
     const { id_client } = request;
 
-    const createDeliveryUsecase = container.resolve(CreateDeliveryUsecase);
+    const createDeliveryService = container.resolve(CreateDeliveryService);
 
-    const delivery = await createDeliveryUsecase.execute({
+    const delivery = await createDeliveryService.execute({
       id_client,
       item_name,
     });

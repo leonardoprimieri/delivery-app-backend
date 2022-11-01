@@ -1,15 +1,15 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
-import { CreateClientUsecase } from "./create-client-usecase";
+import { CreateClientService } from "./create-client-service";
 
 export class CreateClientController {
   constructor() {}
   async handle(request: Request, response: Response) {
     const { password, username } = request.body;
 
-    const createClientUsecase = container.resolve(CreateClientUsecase);
+    const createClientService = container.resolve(CreateClientService);
 
-    const client = await createClientUsecase.execute({
+    const client = await createClientService.execute({
       password,
       username,
     });

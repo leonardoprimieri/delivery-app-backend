@@ -5,7 +5,7 @@ import { compare, hash } from "bcrypt";
 import { injectable } from "tsyringe";
 
 @injectable()
-export class CreateDeliverymanUsecase {
+export class CreateDeliverymanService {
   async execute({ password, username }: CreateDeliverymanDTO) {
     const deliverymanAlreadyExists = await prisma.deliveryman.findFirst({
       where: {
