@@ -9,7 +9,9 @@ export class CreateDeliverymanUsecase {
   async execute({ password, username }: CreateDeliverymanDTO) {
     const deliverymanAlreadyExists = await prisma.deliveryman.findFirst({
       where: {
-        username,
+        username: {
+          equals: username,
+        },
       },
     });
 
