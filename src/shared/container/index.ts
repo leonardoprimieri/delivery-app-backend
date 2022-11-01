@@ -7,7 +7,10 @@ import {
   FindAllAvailableDeliveriesService,
   UpdateDeliverymanService,
 } from "@modules/deliveries/usecases";
-import { CreateDeliverymanService } from "@modules/deliveryman/usecases";
+import {
+  CreateDeliverymanService,
+  FindAllDeliverymanDeliveriesService,
+} from "@modules/deliveryman/usecases";
 import { container } from "tsyringe";
 
 container.registerSingleton("CreateClientService", CreateClientService);
@@ -17,3 +20,7 @@ container.registerSingleton("AuthenticateDeliverymanService", AuthenticateDelive
 container.registerSingleton("FindAllAvailableDeliveriesService", FindAllAvailableDeliveriesService);
 container.registerSingleton("UpdateDeliverymanService", UpdateDeliverymanService);
 container.registerSingleton("FindAllClientDeliveriesService", FindAllClientDeliveriesService);
+container.registerSingleton(
+  "FindAllDeliverymanDeliveriesService",
+  FindAllDeliverymanDeliveriesService
+);
