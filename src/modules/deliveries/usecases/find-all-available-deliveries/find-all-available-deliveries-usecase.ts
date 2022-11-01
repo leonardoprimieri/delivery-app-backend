@@ -1,6 +1,5 @@
-import { FindAllAvailableDeliveriesController } from "@modules/deliveries/usecases";
 import { prisma } from "@shared/database/prisma-client";
-import { container, injectable } from "tsyringe";
+import { injectable } from "tsyringe";
 
 @injectable()
 export class FindAllAvailableDeliveriesUsecase {
@@ -8,6 +7,7 @@ export class FindAllAvailableDeliveriesUsecase {
     const allAvailableDeliveries = await prisma.deliveries.findMany({
       where: {
         end_at: null,
+        id_deliveryman: null,
       },
     });
 
