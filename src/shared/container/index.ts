@@ -5,6 +5,7 @@ import {
 import { CreateClientService, FindAllClientDeliveriesService } from "@modules/clients/usecases";
 import {
   FindAllAvailableDeliveriesService,
+  FinishDeliveryService,
   UpdateDeliverymanService,
 } from "@modules/deliveries/usecases";
 import {
@@ -24,3 +25,4 @@ container.registerSingleton(
   "FindAllDeliverymanDeliveriesService",
   FindAllDeliverymanDeliveriesService
 );
+container.registerSingleton("FinishDeliveryService", FinishDeliveryService);

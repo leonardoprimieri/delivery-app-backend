@@ -9,6 +9,7 @@ import {
 import {
   CreateDeliveryController,
   FindAllAvailableDeliveriesController,
+  FinishDeliveryController,
   UpdateDeliverymanController,
 } from "@modules/deliveries/usecases";
 import {
@@ -34,6 +35,7 @@ const createDeliveryController = new CreateDeliveryController();
 const findAllAvailableDeliveries = new FindAllAvailableDeliveriesController();
 
 const updateDeliverymanController = new UpdateDeliverymanController();
+const finishDeliveryController = new FinishDeliveryController();
 
 routes.post("/client/auth/", authenticateClientController.handle);
 routes.post("/client/", createClientController.handle);
@@ -51,6 +53,11 @@ routes.put(
   "/deliveries/:id/update-deliveryman",
   ensureAuthenticateDeliveryman,
   updateDeliverymanController.handle
+);
+routes.put(
+  "/deliveries/:id/finish-delivery",
+  ensureAuthenticateDeliveryman,
+  finishDeliveryController.handle
 );
 routes.post("/deliveries/", ensureAuthenticateClient, createDeliveryController.handle);
 routes.get(
