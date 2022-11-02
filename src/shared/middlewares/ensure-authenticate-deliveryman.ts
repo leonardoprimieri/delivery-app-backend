@@ -1,3 +1,4 @@
+import auth from "config/auth";
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
@@ -17,7 +18,7 @@ export async function ensureAuthenticateDeliveryman(
   const [, token] = authHeader.split(" ");
 
   try {
-    const { sub: id_deliveryman } = verify(token, String(process.env.JWT_SECRET_DELIVERYMAN));
+    const { sub: id_deliveryman } = verify(token, auth.deliverymanSecret);
     request.id_deliveryman = String(id_deliveryman);
     return next();
   } catch (err) {

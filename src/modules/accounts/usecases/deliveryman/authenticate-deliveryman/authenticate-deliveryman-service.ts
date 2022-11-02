@@ -1,6 +1,7 @@
 import { prisma } from "@shared/database/prisma-client";
 import { AppError } from "@shared/errors";
 import { compare } from "bcrypt";
+import auth from "config/auth";
 import { sign } from "jsonwebtoken";
 import { injectable } from "tsyringe";
 
@@ -28,9 +29,9 @@ export class AuthenticateDeliverymanService {
       throw new AppError("Username or password invalid", 401);
     }
 
-    const token = sign({ username }, String(process.env.JWT_SECRET_DELIVERYMAN), {
+    const token = sign({ username }, auth.deliverymanSecret, {
       subject: deliveryman.id,
-      expiresIn: "1d",
+      expiresIn: auth.expiresInToken,
     });
 
     return token;

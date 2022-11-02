@@ -1,3 +1,4 @@
+import auth from "config/auth";
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
@@ -17,7 +18,7 @@ export async function ensureAuthenticateClient(
   const [, token] = authHeader.split(" ");
 
   try {
-    const { sub: id_client } = verify(token, String(process.env.JWT_SECRET_CLIENT));
+    const { sub: id_client } = verify(token, auth.clientSecret);
     request.id_client = String(id_client);
     return next();
   } catch (err) {
